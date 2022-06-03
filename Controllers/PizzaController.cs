@@ -20,5 +20,19 @@ namespace la_mia_pizzeria_static.Controllers
             pizze.ListaDiPizze.Add(quattroStagioni);
             return View(pizze);
         }
+
+        [HttpGet]
+        public IActionResult CreaFormPizza()
+        {
+            Pizza TempPizza = new Pizza()
+            {
+                Id = 0,
+                Nome = "",
+                Descrizione = "",
+                Foto = "",
+                Prezzo = 0,
+            };
+            return View(TempPizza);
+        }
     }
 }

@@ -23,6 +23,8 @@
     <h1>Pizzeria</h1>
 </header>
 
+<h2>@Html.ActionLink("Crea una Pizza", "CreaFormPizza", "Pizza")</h2>
+
     <div class="container d-flex flex-wrap">
         <div class="row">
             @{
@@ -35,7 +37,7 @@
                     <p class="card-text"> @item.Prezzo euro</p>
                 </div>
                 }
-                }
+            }
         </div>
 
     </div>
