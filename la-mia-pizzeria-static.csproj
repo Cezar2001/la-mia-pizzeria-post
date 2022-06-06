@@ -7,4 +7,11 @@
     <RootNamespace>la_mia_pizzeria_static</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="wwwroot\File\**" />
+    <Content Remove="wwwroot\File\**" />
+    <EmbeddedResource Remove="wwwroot\File\**" />
+    <None Remove="wwwroot\File\**" />
+  </ItemGroup>
+
 </Project>

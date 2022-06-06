@@ -2,6 +2,7 @@
 
 namespace la_mia_pizzeria_static.Models
 {
+    /*
     public class SuperValidationAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validation)
@@ -14,6 +15,7 @@ namespace la_mia_pizzeria_static.Models
             return ValidationResult.Success;
         }
     }
+    */
 
     public class Pizza
     {
@@ -26,24 +28,23 @@ namespace la_mia_pizzeria_static.Models
         [Required(ErrorMessage = "La descrizione della Pizza è obbligatorio")]
         public string Descrizione { get; set; }
         
-        [Required(ErrorMessage = "La foto della Pizza è obbligatorio")]
-        public string Foto { get; set; }
+        public string? sFoto { get; set; }
         
-        [Required(ErrorMessage = "Il prezzo della Pizza è obbligatorio")]
         public double Prezzo { get; set; }
 
-        public IFormFile File { get; set; }
+        public IFormFile Foto { get; set; }
        
         public Pizza()
         {
 
         }
 
-        public Pizza(string nome, string descrizione, string foto, double prezzo)
+        public Pizza(int id, string nome, string descrizione, string foto, double prezzo)
         {
+            Id = id;
             Nome = nome;
             Descrizione = descrizione;
-            Foto = foto;
+            sFoto = foto;
             Prezzo = prezzo;
         }
 

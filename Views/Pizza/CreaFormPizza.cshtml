@@ -4,7 +4,7 @@
     ViewBag.TitoloPagina = "Creazione Pizza Buonissima";
 }
 
-@using (Html.BeginForm("CreaFormPizza", "Pizza", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("CreaSchedaPizza", "Pizza", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
    @Html.ValidationSummary()
     <table cellpadding="0" cellspacing="0" class="center">
@@ -34,13 +34,14 @@
         <tr>
             <td>Foto: </td>
             <td>
-                @Html.TextBoxFor(m => m.File, new {type = "file"})
+                @Html.TextBoxFor(m => m.Foto, new {type = "file"})
+                @Html.ValidationMessage("Foto")
             </td>
         </tr>
         <tr>
             <td>Prezzo: </td>
             <td>
-                @Html.TextBoxFor(m => m.Prezzo)
+                @Html.TextBoxFor(m => m.Prezzo,new {type="number"})
                 @Html.ValidationMessage("Prezzo")
             </td>
         </tr>

@@ -23,24 +23,36 @@
     <h1>Pizzeria</h1>
 </header>
 
-<h2>@Html.ActionLink("Crea una Pizza", "CreaFormPizza", "Pizza")</h2>
+<h2>@Html.ActionLink("Aggiungi una Pizza", "CreaFormPizza", "Pizza")</h2>
 
-    <div class="container d-flex flex-wrap">
+<div class="container d-flex flex-wrap">
         <div class="row">
             @{
-                foreach(var item in Model.ListaDiPizze)
+                if (Model.ListaDiPizze != null)
                 {
-                <div class="card mt-3" style="width: 18rem;">
-                    <img src="@item.Foto" class="card-img-top" alt="" />
-                    <h1 class="card-title">@item.Nome</h1>
-                    <p class="card-text">@item.Descrizione</p>
-                    <p class="card-text"> @item.Prezzo euro</p>
-                </div>
+                    foreach (var p in Model.ListaDiPizze)
+                    {
+                        <div class="card">
+                            <img src="@p.sFoto" class="" />
+                            <h1 class="titolo">@p.Nome</h1>
+                            <p class="descrizione">@p.Descrizione</p>
+                            <p class="prezzo"> @p.Prezzo euro</p>
+                            <button class=""><a href="@Url.Action("Show","Pizza",new {@p.Id})">Dettagli</a></button>
+                        </div>
+
+                    }
+
                 }
+                else
+                {
+                    <h1>Non ci sono pizze</h1>
+                }
+
             }
         </div>
 
     </div>
+
 
 </body>
 </html>
